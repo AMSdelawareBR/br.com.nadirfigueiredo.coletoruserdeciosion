@@ -1,0 +1,1463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_AGGREGATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_ANALYTICS',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Analytics.v1" Alias="Analytics"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CAPABILITIES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CODELIST',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="SAP__CodeList"/>
+        <edmx:Include Namespace="com.sap.vocabularies.CodeList.v1" Alias="CodeList"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="SAP__common"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMUNICATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Communication.v1" Alias="Communication"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_CORE',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Core.V1" Alias="SAP__core"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_MEASURES',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PDF',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_PERSONALDATA',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PersonalData.v1" Alias="PersonalData"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_UI',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_VALIDATION',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='SAP__SELF',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.PDF.v1" Alias="SAP__PDF"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="cds_zui_o2_coletor_qualidade" xml:lang="pt" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="C_MaterialvhType" sap:label="Entradas possíveis de material" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Nº do material"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Descrição" sap:quickinfo="Texto breve de material"/>
+            </EntityType>
+            <EntityType Name="C_PlantVHType" sap:label="Consumo - centro entradas possíveis" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organização vendas" sap:quickinfo="Organização de vendas para faturamento interno"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Canal distribuição" sap:quickinfo="Canal de distribuição"/>
+            </EntityType>
+            <EntityType Name="I_CharcAttributeCodeGrpStdVHType" sap:label="Grupo de códigos de atributo da característica" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CharacteristicAttributeCodeGrp"/>
+                </Key>
+                <Property Name="CharacteristicAttributeCodeGrp" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo de códigos"/>
+            </EntityType>
+            <EntityType Name="I_MachineTypeType" sap:label="Tipo de máquina" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MachineType"/>
+                </Key>
+                <Property Name="MachineType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="MachineType_Text" sap:label="Tipo de máquina"/>
+                <Property Name="MachineType_Text" Type="Edm.String" MaxLength="40" sap:label="Descr.tipo máquina" sap:quickinfo="Descrição do tipo de máquina" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_MaterialStdVHType" sap:label="Material" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Material"/>
+                </Key>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="Material_Text" sap:label="Material" sap:quickinfo="Nº do material"/>
+                <Property Name="Material_Text" Type="Edm.String" MaxLength="40" sap:label="Texto breve material" sap:quickinfo="Texto breve de material" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityType Name="I_MfgOrderTypeVHType" sap:label="Entradas possíveis de tipo de ordem de produção" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrderType"/>
+                </Key>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="ManufacturingOrderTypeName" sap:label="Tipo de ordem" sap:quickinfo="Tipo da ordem de produção"/>
+                <Property Name="ManufacturingOrderTypeName" Type="Edm.String" MaxLength="40" sap:label="Nome tipo de ordem" sap:quickinfo="Nome do tipo da ordem de produção"/>
+            </EntityType>
+            <EntityType Name="I_PlantVHType" sap:label="Centros" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="ValuationArea" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Área de avaliação"/>
+                <Property Name="PlantCustomer" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Nº cliente do centro"/>
+                <Property Name="PlantSupplier" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Número do fornecedor do centro"/>
+                <Property Name="FactoryCalendar" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Calendário fábrica" sap:quickinfo="Chave do calendário de fábrica"/>
+                <Property Name="DefaultPurchasingOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organização de compras"/>
+                <Property Name="SalesOrganization" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Organização vendas" sap:quickinfo="Organização de vendas para faturamento interno"/>
+                <Property Name="AddressID" Type="Edm.String" MaxLength="10" sap:display-format="UpperCase" sap:label="Endereço"/>
+                <Property Name="PlantCategory" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Categoria de centro"/>
+                <Property Name="DistributionChannel" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Canal de distribuição" sap:quickinfo="Canal de distribuição para faturamento interno"/>
+                <Property Name="Division" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Setor atividade faturamento interno" sap:quickinfo="Setor de atividade para faturamento interno"/>
+            </EntityType>
+            <EntityType Name="I_WorkCenterLocationVHType" sap:label="Localização de centro de trabalho" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="WorkCenterPlant"/>
+                    <PropertyRef Name="WorkCenterLocation"/>
+                </Key>
+                <Property Name="WorkCenterPlant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro"/>
+                <Property Name="WorkCenterLocation" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="WorkCenterLocationName" sap:label="Localização"/>
+                <Property Name="WorkCenterLocationName" Type="Edm.String" MaxLength="40" sap:label="Nome da localização"/>
+            </EntityType>
+            <EntityType Name="AnaliseCentroType" sap:label="Tempos de Análise - Centro" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro" sap:value-list="standard"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Material" Relationship="cds_zui_o2_coletor_qualidade.assoc_7540BD3B08062F9CB9DBB8183F7B6215" FromRole="FromRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215" ToRole="ToRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215"/>
+            </EntityType>
+            <EntityType Name="AnaliseMaterialType" sap:label="Tempos de Análise - Material" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="Tempo"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:text="MaterialName" sap:label="Material" sap:quickinfo="Nº do material" sap:value-list="standard"/>
+                <Property Name="Tempo" Type="Edm.Time" Nullable="false" Precision="0" sap:label="Hora Análise" sap:quickinfo="Horário de Análise"/>
+                <Property Name="Tolerancia" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="Tolerância"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Texto breve material" sap:quickinfo="Texto breve de material"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Centro" Relationship="cds_zui_o2_coletor_qualidade.assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE" FromRole="FromRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE" ToRole="ToRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE"/>
+            </EntityType>
+            <EntityType Name="CatDefFisicoType" sap:label="Catálogo Defeitos Fisicos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                    <PropertyRef Name="InspectionLot"/>
+                    <PropertyRef Name="Operation_2"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ordem de produção" sap:quickinfo="Nº ordem (ordem de produção)"/>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="Operation_2" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Operação ou fase" sap:quickinfo="Nº de operação ou fase"/>
+                <Property Name="BillOfOperationsType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo de roteiro"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo" sap:quickinfo="Chave para grupo de listas de tarefas"/>
+                <Property Name="BOOOperationInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Nó lista tarefas" sap:quickinfo="Número de nó de lista de tarefas"/>
+                <Property Name="BillOfOperationsUsage" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Utilização de lista de operações"/>
+                <Property Name="OperationText" Type="Edm.String" MaxLength="40" sap:label="Txt.breve operação"/>
+                <NavigationProperty Name="to_Defeitos" Relationship="cds_zui_o2_coletor_qualidade.assoc_5E611A16146E16CD345817D2700F7AC2" FromRole="FromRole_assoc_5E611A16146E16CD345817D2700F7AC2" ToRole="ToRole_assoc_5E611A16146E16CD345817D2700F7AC2"/>
+            </EntityType>
+            <EntityType Name="AdminType" sap:label="Administração" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="Location"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro" sap:value-list="standard"/>
+                <Property Name="Location" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="LocationName" sap:label="Localização" sap:quickinfo="Localização do centro de trabalho" sap:value-list="standard"/>
+                <Property Name="ConfirmationLimit" Type="Edm.Int32" sap:label="Confirmações Máximas"/>
+                <Property Name="Manager" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Modo Administrativo" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="ManagerCrit" Type="Edm.Byte"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="LocationName" Type="Edm.String" MaxLength="40" sap:label="Nome da localização"/>
+            </EntityType>
+            <EntityType Name="CentroType" sap:label="Parâmetros - Centro" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Processo"/>
+                    <PropertyRef Name="Centro"/>
+                    <PropertyRef Name="OrderType"/>
+                </Key>
+                <Property Name="Processo" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Processo" sap:quickinfo="Coletor - Processos" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Centro" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderType" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="OrderTypeName" sap:label="Tipo de ordem" sap:quickinfo="Tipo da ordem de produção" sap:value-list="standard"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="OrderTypeName" Type="Edm.String" MaxLength="40" sap:label="Nome tipo de ordem" sap:quickinfo="Nome do tipo da ordem de produção"/>
+                <Property Name="Dias" Type="Edm.Int32" sap:label="Dias" sap:quickinfo="Coletor - Tempo em dias"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Processo" Relationship="cds_zui_o2_coletor_qualidade.assoc_2BDE08DB840A0DCA675C67F0EA50B26D" FromRole="FromRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D" ToRole="ToRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D"/>
+            </EntityType>
+            <EntityType Name="DUType" sap:label="Decisão de Usuário" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="InspectionLot"/>
+                    <PropertyRef Name="Plant"/>
+                </Key>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro" sap:value-list="standard"/>
+                <Property Name="SelectedCodeSet" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Conj.selecionado DU" sap:quickinfo="Conjunto selecionado da decisão de utilização"/>
+                <Property Name="InspectionCodeGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:text="InspectionCodeGroupText" sap:label="Grupo de códigos"/>
+                <Property Name="IsPrinted" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Impresso" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="IsPrintedCrit" Type="Edm.Byte"/>
+                <Property Name="IsSkipped" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Forçada" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="IsSkippedCrit" Type="Edm.Byte"/>
+                <Property Name="InspectionValuationResult" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="InspectionCodeText" sap:label="Código"/>
+                <Property Name="InspectionValuationResultCrit" Type="Edm.Byte"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="InspectionCodeGroupText" Type="Edm.String" MaxLength="40" sap:label="Txt.grupo códs." sap:quickinfo="Texto para grupo de códigos"/>
+                <Property Name="InspectionCodeText" Type="Edm.String" MaxLength="40" sap:label="Texto de código" sap:quickinfo="Texto breve para código"/>
+                <Property Name="InspectionLotHasUsageDecision" Type="Edm.String" MaxLength="1" sap:display-format="NonNegative" sap:filter-restriction="single-value" sap:label="DU Realizada" sap:quickinfo="Decisão de Utilização" sap:value-list="fixed-values"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)"/>
+                <NavigationProperty Name="to_AttrCode" Relationship="cds_zui_o2_coletor_qualidade.assoc_AB8679E20F038F8FAF70E098B60679F6" FromRole="FromRole_assoc_AB8679E20F038F8FAF70E098B60679F6" ToRole="ToRole_assoc_AB8679E20F038F8FAF70E098B60679F6"/>
+            </EntityType>
+            <EntityType Name="LotesType" sap:label="Lotes de Contole" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                    <PropertyRef Name="InspectionLot"/>
+                    <PropertyRef Name="Material"/>
+                    <PropertyRef Name="OperationStandardTextCode"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro"/>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ordem de produção" sap:quickinfo="Nº ordem (ordem de produção)"/>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="Material" Type="Edm.String" Nullable="false" MaxLength="18" sap:display-format="UpperCase" sap:label="Material" sap:quickinfo="Nº do material" sap:value-list="standard"/>
+                <Property Name="OperationStandardTextCode" Type="Edm.String" Nullable="false" MaxLength="7" sap:display-format="UpperCase" sap:label="Chave de modelo"/>
+                <Property Name="ResponsiblePlannerGroup" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Grupo planej." sap:quickinfo="Grupo de planejamento ou departamento responsável"/>
+                <Property Name="BillOfOperationsType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo lista de operações" sap:quickinfo="Tipo de lista de operações"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo lista de operações" sap:quickinfo="Grupo de lista de operações"/>
+                <Property Name="BillOfOperationsVariant" Type="Edm.String" MaxLength="2" sap:display-format="UpperCase" sap:label="Contador de lista de operações"/>
+                <Property Name="BillOfOperationsUsage" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Utilização de lista de operações"/>
+                <Property Name="InspectionValuationResult" Type="Edm.String" MaxLength="1"/>
+                <Property Name="InspectionValuationResultCrit" Type="Edm.Byte"/>
+                <Property Name="IsPrinted" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="IsSkipAllowed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Closed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="IsClosable" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="QualityAcceptanceLevel" Type="Edm.Decimal" Precision="7" Scale="3"/>
+                <Property Name="SampleSize" Type="Edm.Int32"/>
+            </EntityType>
+            <EntityType Name="ProcessosType" sap:label="Parâmetros - Processo" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Processo"/>
+                    <PropertyRef Name="Centro"/>
+                </Key>
+                <Property Name="Processo" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="ProcessName" sap:label="Processo" sap:quickinfo="Coletor - Processos" sap:value-list="fixed-values"/>
+                <Property Name="Centro" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro" sap:value-list="standard"/>
+                <Property Name="ProcessName" Type="Edm.String" MaxLength="60" sap:label="Descrição breve" sap:quickinfo="Texto breve para valores fixos"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <Property Name="CreatedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="CreatedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedBy" Type="Edm.String" MaxLength="12" sap:display-format="UpperCase" sap:label="Nome do usuário" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="LocalLastChangedAt" Type="Edm.DateTimeOffset" Precision="7" sap:label="Registro da hora" sap:quickinfo="Registro hora UTC forma descritiva (JJJJMMTThhmmssmmmuuun)" sap:creatable="false" sap:updatable="false"/>
+                <NavigationProperty Name="to_Centro" Relationship="cds_zui_o2_coletor_qualidade.assoc_50F8B5CFA4392D80BA6C5948168E3538" FromRole="FromRole_assoc_50F8B5CFA4392D80BA6C5948168E3538" ToRole="ToRole_assoc_50F8B5CFA4392D80BA6C5948168E3538"/>
+            </EntityType>
+            <EntityType Name="DefeitosVisualType" sap:label="Defeitos Visuais" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="MfgActionReasonCodeGroupCtlg"/>
+                    <PropertyRef Name="MfgActionReasonCodeGroup"/>
+                    <PropertyRef Name="MfgActionReasonGroup"/>
+                    <PropertyRef Name="ManufacturingActionReasonCode"/>
+                    <PropertyRef Name="Version"/>
+                    <PropertyRef Name="Language"/>
+                </Key>
+                <Property Name="MfgActionReasonCodeGroupCtlg" Type="Edm.String" Nullable="false" MaxLength="1" sap:display-format="UpperCase" sap:label="Catálogo"/>
+                <Property Name="MfgActionReasonCodeGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:text="MfgActionReasonCodeGroupText" sap:label="Processo de amostra" sap:quickinfo="Processo de amostra na característica de controle"/>
+                <Property Name="MfgActionReasonGroup" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo de códigos"/>
+                <Property Name="ManufacturingActionReasonCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="MfgActionReasonCodeName" sap:label="Código"/>
+                <Property Name="Version" Type="Edm.String" Nullable="false" MaxLength="6" sap:display-format="UpperCase" sap:label="Versão" sap:quickinfo="Número da versão"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Código de idioma"/>
+                <Property Name="MfgActionReasonCodeGroupText" Type="Edm.String" MaxLength="40" sap:label="Texto breve" sap:quickinfo="Descrição breve do grupo de códigos"/>
+                <Property Name="MfgActionReasonCodeName" Type="Edm.String" MaxLength="40" sap:label="Txt.breve p/código" sap:quickinfo="Texto breve para o código"/>
+                <Property Name="InspectionLot" Type="Edm.String" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="NumberOfDefects" Type="Edm.Int32" sap:label="Número de ocorrências" sap:quickinfo="Número de ocorrências de defeito"/>
+                <Property Name="BillOfOperationsType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo de roteiro"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo" sap:quickinfo="Chave para grupo de listas de tarefas"/>
+                <Property Name="BOOOperationInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Nó lista tarefas" sap:quickinfo="Número de nó de lista de tarefas"/>
+                <Property Name="BillOfOperationsUsage" Type="Edm.String" MaxLength="3"/>
+                <Property Name="BOOCharacteristic" Type="Edm.String" MaxLength="4" sap:display-format="NonNegative" sap:label="CaractCtrl." sap:quickinfo="Nº característica de controle"/>
+            </EntityType>
+            <EntityType Name="DefeitosFisicoType" sap:label="Defeitos Fisicos" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                    <PropertyRef Name="InspectionLot"/>
+                    <PropertyRef Name="InspectionOperation"/>
+                    <PropertyRef Name="BOOCharacteristic"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ordem de produção" sap:quickinfo="Nº ordem (ordem de produção)"/>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="InspectionOperation" Type="Edm.String" Nullable="false" MaxLength="4"/>
+                <Property Name="BOOCharacteristic" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="NonNegative" sap:label="CaractCtrl." sap:quickinfo="Nº característica de controle"/>
+                <Property Name="BillOfOperationsType" Type="Edm.String" MaxLength="1" sap:display-format="UpperCase" sap:label="Tipo de roteiro"/>
+                <Property Name="BillOfOperationsGroup" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Grupo" sap:quickinfo="Chave para grupo de listas de tarefas"/>
+                <Property Name="BOOOperationInternalID" Type="Edm.String" MaxLength="8" sap:display-format="NonNegative" sap:label="Nó lista tarefas" sap:quickinfo="Número de nó de lista de tarefas"/>
+                <Property Name="BillOfOperationsUsage" Type="Edm.String" MaxLength="3" sap:display-format="UpperCase" sap:label="Utilização de lista de operações"/>
+                <Property Name="InspectionSpecification" Type="Edm.String" MaxLength="8" sap:display-format="UpperCase" sap:label="Caract.mestre ctrl." sap:quickinfo="Característica mestre de controle"/>
+                <Property Name="InspectionSpecificationText" Type="Edm.String" MaxLength="40" sap:label="Txt.breve caract." sap:quickinfo="Texto breve para característica de controle"/>
+                <Property Name="InspSpecTargetValue" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="InspectionSpecificationUnit" sap:label="Quantidade"/>
+                <Property Name="InspSpecTargetValueText" Type="Edm.String" MaxLength="40" sap:label="Denomin.cpo.longo" sap:quickinfo="Denominador campo longo"/>
+                <Property Name="InspSpecUpperLimit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="InspectionSpecificationUnit" sap:label="Quantidade"/>
+                <Property Name="InspSpecUpperLimitText" Type="Edm.String" MaxLength="60" sap:label="Descrição breve" sap:quickinfo="Descrição breve dos objetos do repositório"/>
+                <Property Name="InspSpecLowerLimit" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="InspectionSpecificationUnit" sap:label="Quantidade"/>
+                <Property Name="InspSpecLowerLimitText" Type="Edm.String" MaxLength="60" sap:label="Descrição breve" sap:quickinfo="Descrição breve dos objetos do repositório"/>
+                <Property Name="InspectionSpecificationUnit" Type="Edm.String" MaxLength="3" sap:label="Unidade de medida" sap:quickinfo="Unidade de medida, na qual dados quantitativos são gravados" sap:semantics="unit-of-measure"/>
+                <Property Name="InspectionResultMeanValue" Type="Edm.Decimal" Precision="21" Scale="3"/>
+                <Property Name="InspectionValuationResult" Type="Edm.String" MaxLength="1"/>
+                <Property Name="Closed" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <NavigationProperty Name="to_Catalogo" Relationship="cds_zui_o2_coletor_qualidade.assoc_D1C5A5FDBE178EF4A0A1313AD75C475A" FromRole="FromRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A" ToRole="ToRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A"/>
+            </EntityType>
+            <EntityType Name="DUOptionsType" sap:label="Códigos de Decisão de Usuário" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CharacteristicAttributeCodeGrp"/>
+                    <PropertyRef Name="CharacteristicAttributeCode"/>
+                </Key>
+                <Property Name="CharacteristicAttributeCodeGrp" Type="Edm.String" Nullable="false" MaxLength="8" sap:display-format="UpperCase" sap:text="CharacteristicAttribCodeGrpTxt" sap:label="Grupo de códigos" sap:value-list="standard"/>
+                <Property Name="CharacteristicAttributeCode" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="CharacteristicAttributeCodeTxt" sap:label="Código"/>
+                <Property Name="CharacteristicAttributeCodeTxt" Type="Edm.String" MaxLength="40" sap:label="Texto de código" sap:quickinfo="Texto breve para código"/>
+                <Property Name="CharacteristicAttribCodeGrpTxt" Type="Edm.String" MaxLength="40" sap:label="Txt.grupo códs." sap:quickinfo="Texto para grupo de códigos"/>
+                <Property Name="CharacAttributeCodeIcon" Type="Edm.String" MaxLength="24"/>
+            </EntityType>
+            <EntityType Name="LinhasType" sap:label="Controle de Qualidade - Linhas" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="WorkCenterLocation"/>
+                    <PropertyRef Name="MachineType"/>
+                    <PropertyRef Name="Processo"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:text="PlantName" sap:label="Centro" sap:value-list="standard"/>
+                <Property Name="WorkCenterLocation" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="WorkCenterLocationName" sap:label="Localização" sap:quickinfo="Localização do centro de trabalho" sap:value-list="standard"/>
+                <Property Name="MachineType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="MachineTypeName" sap:label="Tipo de máquina" sap:value-list="standard"/>
+                <Property Name="Processo" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Processo" sap:quickinfo="Coletor - Processos"/>
+                <Property Name="WorkCenterLocationName" Type="Edm.String" MaxLength="40" sap:label="Nome da localização"/>
+                <Property Name="MachineTypeName" Type="Edm.String" MaxLength="40" sap:label="Descr.tipo máquina" sap:quickinfo="Descrição do tipo de máquina"/>
+                <Property Name="PlantName" Type="Edm.String" MaxLength="30" sap:label="Nome do centro"/>
+                <NavigationProperty Name="to_Ordens" Relationship="cds_zui_o2_coletor_qualidade.assoc_E0A8A9715CFA748B3DC84627A3465D16" FromRole="FromRole_assoc_E0A8A9715CFA748B3DC84627A3465D16" ToRole="ToRole_assoc_E0A8A9715CFA748B3DC84627A3465D16"/>
+            </EntityType>
+            <EntityType Name="OrdensType" sap:label="Controle de Qualidade - Ordens" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Plant"/>
+                    <PropertyRef Name="WorkCenterLocation"/>
+                    <PropertyRef Name="MachineType"/>
+                    <PropertyRef Name="Processo"/>
+                    <PropertyRef Name="OrderID"/>
+                </Key>
+                <Property Name="Plant" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Centro" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="WorkCenterLocation" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Localização" sap:quickinfo="Localização do centro de trabalho" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="MachineType" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:label="Tipo de máquina" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Processo" Type="Edm.String" Nullable="false" MaxLength="4" sap:display-format="UpperCase" sap:label="Processo" sap:quickinfo="Coletor - Processos" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="OrderID" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ordem" sap:quickinfo="Nº ordem"/>
+                <Property Name="ManufacturingOrderType" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:text="ManufacturingOrderTypeName" sap:label="Tipo de ordem"/>
+                <Property Name="ManufacturingOrderTypeName" Type="Edm.String" MaxLength="40" sap:label="Nome tipo de ordem" sap:quickinfo="Nome do tipo da ordem de produção" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="Material" Type="Edm.String" MaxLength="18" sap:display-format="UpperCase" sap:text="MaterialName" sap:label="Material lis.ops." sap:quickinfo="Material de lista de operações"/>
+                <Property Name="MaterialName" Type="Edm.String" MaxLength="40" sap:label="Texto breve material" sap:quickinfo="Texto breve de material"/>
+                <Property Name="OrderPlannedTotalQty" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="BaseUnit" sap:label="Qtd.total da ordem" sap:quickinfo="Quantidade total da ordem"/>
+                <Property Name="BaseUnit" Type="Edm.String" MaxLength="3" sap:label="UMB" sap:quickinfo="Unidade de medida básica" sap:semantics="unit-of-measure"/>
+                <Property Name="ArticleValue" Type="Edm.String" MaxLength="70" sap:label="Val.caract." sap:quickinfo="Valor da característica"/>
+                <Property Name="Article" Type="Edm.String" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome característica" sap:quickinfo="Nome da característica"/>
+                <Property Name="ControllingObject" Type="Edm.String" MaxLength="22" sap:display-format="UpperCase" sap:label="Nº objeto"/>
+                <Property Name="Status" Type="Edm.String" MaxLength="4" sap:label="Status" sap:quickinfo="Status individual de um objeto (forma breve)"/>
+                <Property Name="StatusCrit" Type="Edm.Byte"/>
+                <Property Name="InspectionLotTotal" Type="Edm.Decimal" Precision="10" Scale="0"/>
+                <Property Name="InspectedLotTotal" Type="Edm.Int32"/>
+                <Property Name="QuantityNumerator" Type="Edm.Decimal" Precision="5" Scale="0" sap:label="Unidades/quantidade - UMB" sap:quickinfo="Numerador para a conversão em unidades de medida básicas"/>
+                <Property Name="InspectionLotSampleQuantity" Type="Edm.Decimal" Precision="13" Scale="3" sap:unit="InspectionLotSampleUnit"/>
+                <Property Name="InspectionLotSampleUnit" Type="Edm.String" MaxLength="3" sap:label="Unidade de medida da amostra" sap:semantics="unit-of-measure"/>
+                <Property Name="ConfirmationLimit" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Verdadeiro" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <Property Name="Manager" Type="Edm.Boolean" sap:display-format="UpperCase" sap:label="Modo Administrativo" sap:quickinfo="Elem.dados para domínio BOOLE: TRUE (='X') e FALSE (=' ')"/>
+                <NavigationProperty Name="to_Linha" Relationship="cds_zui_o2_coletor_qualidade.assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D" FromRole="FromRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D" ToRole="ToRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D"/>
+                <NavigationProperty Name="to_Lotes" Relationship="cds_zui_o2_coletor_qualidade.assoc_61F5CD85E9F1831AB0B2288B3935B3EB" FromRole="FromRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB" ToRole="ToRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB"/>
+            </EntityType>
+            <EntityType Name="LoteStatusType" sap:label="Lotes de Controle - Resultados" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ManufacturingOrder"/>
+                    <PropertyRef Name="InspectionLot"/>
+                </Key>
+                <Property Name="ManufacturingOrder" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:label="Ordem de produção" sap:quickinfo="Nº ordem (ordem de produção)"/>
+                <Property Name="InspectionLot" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="NonNegative" sap:label="Lote de controle" sap:quickinfo="Nº do lote de controle"/>
+                <Property Name="InspectionValuationResult" Type="Edm.String" MaxLength="4" sap:display-format="UpperCase" sap:label="Código"/>
+            </EntityType>
+            <EntityType Name="ZI_QM_COLETOR_PROCESSO_VHType" sap:label="Value Help - Processo" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Dominio"/>
+                    <PropertyRef Name="Language"/>
+                    <PropertyRef Name="Process"/>
+                </Key>
+                <Property Name="Dominio" Type="Edm.String" Nullable="false" MaxLength="30" sap:display-format="UpperCase" sap:label="Nome do domínio" sap:quickinfo="Denominação de um domínio"/>
+                <Property Name="Language" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Idioma" sap:quickinfo="Código de idioma"/>
+                <Property Name="Process" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="ProcessName" sap:label="Valor inferior" sap:quickinfo="Valores p/domínios: valor ind./limite inferior"/>
+                <Property Name="ProcessName" Type="Edm.String" MaxLength="60" sap:label="Descrição breve" sap:quickinfo="Texto breve para valores fixos"/>
+            </EntityType>
+            <EntityType Name="ZI_QM_DU_REALIZADA_VHType" sap:label="Ajuda de Pesquisa - DU" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Opcao"/>
+                </Key>
+                <Property Name="Opcao" Type="Edm.String" Nullable="false" MaxLength="10" sap:display-format="UpperCase" sap:text="OpcaoText" sap:label="Valor inferior" sap:quickinfo="Valores p/domínios: valor ind./limite inferior"/>
+                <Property Name="OpcaoText" Type="Edm.String" MaxLength="60" sap:label="Descrição breve" sap:quickinfo="Texto breve para valores fixos"/>
+            </EntityType>
+            <EntityType Name="SAP__Currency" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="CurrencyCode"/>
+                </Key>
+                <Property Name="CurrencyCode" Type="Edm.String" Nullable="false" MaxLength="5" sap:label="Moeda" sap:semantics="currency-code"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Código ISO"/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="15" sap:label="Texto breve"/>
+                <Property Name="DecimalPlaces" Type="Edm.Byte" Nullable="false" sap:label="Decimais"/>
+            </EntityType>
+            <EntityType Name="SAP__UnitOfMeasure" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="UnitCode"/>
+                </Key>
+                <Property Name="UnitCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Unid.medida interna" sap:semantics="unit-of-measure"/>
+                <Property Name="ISOCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Código ISO"/>
+                <Property Name="ExternalCode" Type="Edm.String" Nullable="false" MaxLength="3" sap:label="Apresentação comerc."/>
+                <Property Name="Text" Type="Edm.String" Nullable="false" MaxLength="30" sap:label="Texto unid.med."/>
+                <Property Name="DecimalPlaces" Type="Edm.Int16" sap:label="Casas decimais"/>
+            </EntityType>
+            <EntityType Name="SAP__DocumentDescription" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID"/>
+                <Property Name="CreatedBy" Type="Edm.String" Nullable="false" MaxLength="12"/>
+                <Property Name="CreatedAt" Type="Edm.DateTime" Nullable="false" Precision="0" sap:label="Registro da hora"/>
+                <Property Name="FileName" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256"/>
+                <NavigationProperty Name="Format" Relationship="cds_zui_o2_coletor_qualidade.to_format" FromRole="FromRole_to_format" ToRole="ToRole_to_format"/>
+                <NavigationProperty Name="TableColumns" Relationship="cds_zui_o2_coletor_qualidade.to_tablecolumns" FromRole="FromRole_to_tablecolumns" ToRole="ToRole_to_tablecolumns"/>
+                <NavigationProperty Name="CoverPage" Relationship="cds_zui_o2_coletor_qualidade.to_coverpage" FromRole="FromRole_to_coverpage" ToRole="ToRole_to_coverpage"/>
+                <NavigationProperty Name="Signature" Relationship="cds_zui_o2_coletor_qualidade.to_signature" FromRole="FromRole_to_signature" ToRole="ToRole_to_signature"/>
+                <NavigationProperty Name="PDFStandard" Relationship="cds_zui_o2_coletor_qualidade.to_pdfstandard" FromRole="FromRole_to_pdfstandard" ToRole="ToRole_to_pdfstandard"/>
+            </EntityType>
+            <EntityType Name="SAP__Format" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="FitToPage" Type="cds_zui_o2_coletor_qualidade.SAP__FitToPage" Nullable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Orientation" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="PaperSize" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="BorderSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MarginSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FontName" Type="Edm.String" Nullable="false" MaxLength="255" sap:label="Font Name" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__PDFStandard" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="UsePDFAConformance" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoEnableAccessibility" Type="Edm.Boolean" Nullable="false" sap:label="Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__TableColumns" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                    <PropertyRef Name="Header"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Header" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="HorizontalAlignment" Type="Edm.String" Nullable="false" MaxLength="10" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__CoverPage" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Title"/>
+                    <PropertyRef Name="Id"/>
+                    <PropertyRef Name="Name"/>
+                </Key>
+                <Property Name="Title" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Name" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Value" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__Signature" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="Id"/>
+                </Key>
+                <Property Name="Id" Type="Edm.Guid" Nullable="false" sap:label="GUID" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="DoSign" Type="Edm.Boolean" Nullable="false" sap:label="Flag" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Reason" Type="Edm.String" Nullable="false" MaxLength="256" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="SAP__ValueHelp" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="VALUEHELP"/>
+                </Key>
+                <Property Name="VALUEHELP" Type="Edm.String" Nullable="false"/>
+                <Property Name="FIELD_VALUE" Type="Edm.String" Nullable="false" MaxLength="10"/>
+                <Property Name="DESCRIPTION" Type="Edm.String"/>
+            </EntityType>
+            <ComplexType Name="DummyFunctionImportResult">
+                <Property Name="IsInvalid" Type="Edm.Boolean" sap:label="Verdadeiro"/>
+            </ComplexType>
+            <ComplexType Name="SAP__FitToPage">
+                <Property Name="ErrorRecoveryBehavior" Type="Edm.String" Nullable="false" MaxLength="8" sap:label="Error behavior" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IsEnabled" Type="Edm.Boolean" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="MinimumFontSize" Type="Edm.Int32" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </ComplexType>
+            <Association Name="assoc_AB8679E20F038F8FAF70E098B60679F6" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.DUType" Multiplicity="1" Role="FromRole_assoc_AB8679E20F038F8FAF70E098B60679F6"/>
+                <End Type="cds_zui_o2_coletor_qualidade.DUOptionsType" Multiplicity="*" Role="ToRole_assoc_AB8679E20F038F8FAF70E098B60679F6"/>
+            </Association>
+            <Association Name="assoc_5E611A16146E16CD345817D2700F7AC2" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.CatDefFisicoType" Multiplicity="1" Role="FromRole_assoc_5E611A16146E16CD345817D2700F7AC2"/>
+                <End Type="cds_zui_o2_coletor_qualidade.DefeitosFisicoType" Multiplicity="*" Role="ToRole_assoc_5E611A16146E16CD345817D2700F7AC2"/>
+            </Association>
+            <Association Name="assoc_50F8B5CFA4392D80BA6C5948168E3538" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.ProcessosType" Multiplicity="1" Role="FromRole_assoc_50F8B5CFA4392D80BA6C5948168E3538">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_o2_coletor_qualidade.CentroType" Multiplicity="*" Role="ToRole_assoc_50F8B5CFA4392D80BA6C5948168E3538"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_50F8B5CFA4392D80BA6C5948168E3538">
+                        <PropertyRef Name="Centro"/>
+                        <PropertyRef Name="Processo"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_50F8B5CFA4392D80BA6C5948168E3538">
+                        <PropertyRef Name="Centro"/>
+                        <PropertyRef Name="Processo"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_7540BD3B08062F9CB9DBB8183F7B6215" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.AnaliseCentroType" Multiplicity="1" Role="FromRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_o2_coletor_qualidade.AnaliseMaterialType" Multiplicity="*" Role="ToRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215">
+                        <PropertyRef Name="Plant"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215">
+                        <PropertyRef Name="Plant"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_format" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_format"/>
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__Format" Multiplicity="1" Role="ToRole_to_format"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_format">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_tablecolumns" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_tablecolumns"/>
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__TableColumns" Multiplicity="*" Role="ToRole_to_tablecolumns"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_tablecolumns">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_coverpage" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_coverpage"/>
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__CoverPage" Multiplicity="*" Role="ToRole_to_coverpage"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_coverpage">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_signature" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_signature"/>
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__Signature" Multiplicity="1" Role="ToRole_to_signature"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_signature">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="to_pdfstandard" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" Multiplicity="1" Role="FromRole_to_pdfstandard"/>
+                <End Type="cds_zui_o2_coletor_qualidade.SAP__PDFStandard" Multiplicity="1" Role="ToRole_to_pdfstandard"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Principal>
+                    <Dependent Role="ToRole_to_pdfstandard">
+                        <PropertyRef Name="Id"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.OrdensType" Multiplicity="1" Role="FromRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D"/>
+                <End Type="cds_zui_o2_coletor_qualidade.LinhasType" Multiplicity="1" Role="ToRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D"/>
+            </Association>
+            <Association Name="assoc_61F5CD85E9F1831AB0B2288B3935B3EB" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.OrdensType" Multiplicity="1" Role="FromRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB"/>
+                <End Type="cds_zui_o2_coletor_qualidade.LotesType" Multiplicity="*" Role="ToRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB"/>
+            </Association>
+            <Association Name="assoc_2BDE08DB840A0DCA675C67F0EA50B26D" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.CentroType" Multiplicity="1" Role="FromRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D"/>
+                <End Type="cds_zui_o2_coletor_qualidade.ProcessosType" Multiplicity="1" Role="ToRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D"/>
+            </Association>
+            <Association Name="assoc_D1C5A5FDBE178EF4A0A1313AD75C475A" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.DefeitosFisicoType" Multiplicity="1" Role="FromRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A"/>
+                <End Type="cds_zui_o2_coletor_qualidade.CatDefFisicoType" Multiplicity="0..1" Role="ToRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A"/>
+            </Association>
+            <Association Name="assoc_E0A8A9715CFA748B3DC84627A3465D16" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.LinhasType" Multiplicity="1" Role="FromRole_assoc_E0A8A9715CFA748B3DC84627A3465D16">
+                    <OnDelete Action="Cascade"/>
+                </End>
+                <End Type="cds_zui_o2_coletor_qualidade.OrdensType" Multiplicity="*" Role="ToRole_assoc_E0A8A9715CFA748B3DC84627A3465D16"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_assoc_E0A8A9715CFA748B3DC84627A3465D16">
+                        <PropertyRef Name="Processo"/>
+                        <PropertyRef Name="MachineType"/>
+                        <PropertyRef Name="WorkCenterLocation"/>
+                        <PropertyRef Name="Plant"/>
+                    </Principal>
+                    <Dependent Role="ToRole_assoc_E0A8A9715CFA748B3DC84627A3465D16">
+                        <PropertyRef Name="Processo"/>
+                        <PropertyRef Name="MachineType"/>
+                        <PropertyRef Name="WorkCenterLocation"/>
+                        <PropertyRef Name="Plant"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE" sap:content-version="1">
+                <End Type="cds_zui_o2_coletor_qualidade.AnaliseMaterialType" Multiplicity="1" Role="FromRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE"/>
+                <End Type="cds_zui_o2_coletor_qualidade.AnaliseCentroType" Multiplicity="1" Role="ToRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE"/>
+            </Association>
+            <EntityContainer Name="cds_zui_o2_coletor_qualidade_Entities" m:IsDefaultEntityContainer="true" sap:message-scope-supported="true" sap:supported-formats="atom json xlsx pdf">
+                <EntitySet Name="SAP__Currencies" EntityType="cds_zui_o2_coletor_qualidade.SAP__Currency" sap:content-version="1"/>
+                <EntitySet Name="SAP__UnitsOfMeasure" EntityType="cds_zui_o2_coletor_qualidade.SAP__UnitOfMeasure" sap:content-version="1"/>
+                <EntitySet Name="SAP__MyDocumentDescriptions" EntityType="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" sap:content-version="1"/>
+                <EntitySet Name="SAP__FormatSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__Format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__PDFStandardSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__PDFStandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__TableColumnsSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__TableColumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__CoverPageSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__CoverPage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__SignatureSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__Signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:addressable="false" sap:content-version="1"/>
+                <EntitySet Name="SAP__ValueHelpSet" EntityType="cds_zui_o2_coletor_qualidade.SAP__ValueHelp" sap:content-version="1"/>
+                <EntitySet Name="C_Materialvh" EntityType="cds_zui_o2_coletor_qualidade.C_MaterialvhType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="C_PlantVH" EntityType="cds_zui_o2_coletor_qualidade.C_PlantVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_CharcAttributeCodeGrpStdVH" EntityType="cds_zui_o2_coletor_qualidade.I_CharcAttributeCodeGrpStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="I_MachineType" EntityType="cds_zui_o2_coletor_qualidade.I_MachineTypeType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MaterialStdVH" EntityType="cds_zui_o2_coletor_qualidade.I_MaterialStdVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_MfgOrderTypeVH" EntityType="cds_zui_o2_coletor_qualidade.I_MfgOrderTypeVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_PlantVH" EntityType="cds_zui_o2_coletor_qualidade.I_PlantVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="I_WorkCenterLocationVH" EntityType="cds_zui_o2_coletor_qualidade.I_WorkCenterLocationVHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:content-version="1"/>
+                <EntitySet Name="AnaliseCentro" EntityType="cds_zui_o2_coletor_qualidade.AnaliseCentroType" sap:content-version="1"/>
+                <EntitySet Name="AnaliseMaterial" EntityType="cds_zui_o2_coletor_qualidade.AnaliseMaterialType" sap:content-version="1"/>
+                <EntitySet Name="CatDefFisico" EntityType="cds_zui_o2_coletor_qualidade.CatDefFisicoType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Admin" EntityType="cds_zui_o2_coletor_qualidade.AdminType" sap:content-version="1"/>
+                <EntitySet Name="Centro" EntityType="cds_zui_o2_coletor_qualidade.CentroType" sap:content-version="1"/>
+                <EntitySet Name="DU" EntityType="cds_zui_o2_coletor_qualidade.DUType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Lotes" EntityType="cds_zui_o2_coletor_qualidade.LotesType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Processos" EntityType="cds_zui_o2_coletor_qualidade.ProcessosType" sap:content-version="1"/>
+                <EntitySet Name="DefeitosVisual" EntityType="cds_zui_o2_coletor_qualidade.DefeitosVisualType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="DefeitosFisico" EntityType="cds_zui_o2_coletor_qualidade.DefeitosFisicoType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="DUOptions" EntityType="cds_zui_o2_coletor_qualidade.DUOptionsType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Linhas" EntityType="cds_zui_o2_coletor_qualidade.LinhasType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="Ordens" EntityType="cds_zui_o2_coletor_qualidade.OrdensType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="LoteStatus" EntityType="cds_zui_o2_coletor_qualidade.LoteStatusType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_QM_COLETOR_PROCESSO_VH" EntityType="cds_zui_o2_coletor_qualidade.ZI_QM_COLETOR_PROCESSO_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="ZI_QM_DU_REALIZADA_VH" EntityType="cds_zui_o2_coletor_qualidade.ZI_QM_DU_REALIZADA_VHType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <AssociationSet Name="assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D" Association="cds_zui_o2_coletor_qualidade.assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Ordens" Role="FromRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D"/>
+                    <End EntitySet="Linhas" Role="ToRole_assoc_6878CA8B3A5AF1A1D1A7C026E3DA759D"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_5E611A16146E16CD345817D2700F7AC2" Association="cds_zui_o2_coletor_qualidade.assoc_5E611A16146E16CD345817D2700F7AC2" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="CatDefFisico" Role="FromRole_assoc_5E611A16146E16CD345817D2700F7AC2"/>
+                    <End EntitySet="DefeitosFisico" Role="ToRole_assoc_5E611A16146E16CD345817D2700F7AC2"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_2BDE08DB840A0DCA675C67F0EA50B26D" Association="cds_zui_o2_coletor_qualidade.assoc_2BDE08DB840A0DCA675C67F0EA50B26D" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Centro" Role="FromRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D"/>
+                    <End EntitySet="Processos" Role="ToRole_assoc_2BDE08DB840A0DCA675C67F0EA50B26D"/>
+                </AssociationSet>
+                <AssociationSet Name="to_formatSet" Association="cds_zui_o2_coletor_qualidade.to_format" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_format"/>
+                    <End EntitySet="SAP__FormatSet" Role="ToRole_to_format"/>
+                </AssociationSet>
+                <AssociationSet Name="to_pdfstandardSet" Association="cds_zui_o2_coletor_qualidade.to_pdfstandard" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_pdfstandard"/>
+                    <End EntitySet="SAP__PDFStandardSet" Role="ToRole_to_pdfstandard"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_61F5CD85E9F1831AB0B2288B3935B3EB" Association="cds_zui_o2_coletor_qualidade.assoc_61F5CD85E9F1831AB0B2288B3935B3EB" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Ordens" Role="FromRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB"/>
+                    <End EntitySet="Lotes" Role="ToRole_assoc_61F5CD85E9F1831AB0B2288B3935B3EB"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_AB8679E20F038F8FAF70E098B60679F6" Association="cds_zui_o2_coletor_qualidade.assoc_AB8679E20F038F8FAF70E098B60679F6" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DU" Role="FromRole_assoc_AB8679E20F038F8FAF70E098B60679F6"/>
+                    <End EntitySet="DUOptions" Role="ToRole_assoc_AB8679E20F038F8FAF70E098B60679F6"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_7540BD3B08062F9CB9DBB8183F7B6215" Association="cds_zui_o2_coletor_qualidade.assoc_7540BD3B08062F9CB9DBB8183F7B6215" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="AnaliseCentro" Role="FromRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215"/>
+                    <End EntitySet="AnaliseMaterial" Role="ToRole_assoc_7540BD3B08062F9CB9DBB8183F7B6215"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_50F8B5CFA4392D80BA6C5948168E3538" Association="cds_zui_o2_coletor_qualidade.assoc_50F8B5CFA4392D80BA6C5948168E3538" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Processos" Role="FromRole_assoc_50F8B5CFA4392D80BA6C5948168E3538"/>
+                    <End EntitySet="Centro" Role="ToRole_assoc_50F8B5CFA4392D80BA6C5948168E3538"/>
+                </AssociationSet>
+                <AssociationSet Name="to_tablecolumnsSet" Association="cds_zui_o2_coletor_qualidade.to_tablecolumns" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_tablecolumns"/>
+                    <End EntitySet="SAP__TableColumnsSet" Role="ToRole_to_tablecolumns"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_E0A8A9715CFA748B3DC84627A3465D16" Association="cds_zui_o2_coletor_qualidade.assoc_E0A8A9715CFA748B3DC84627A3465D16" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="Linhas" Role="FromRole_assoc_E0A8A9715CFA748B3DC84627A3465D16"/>
+                    <End EntitySet="Ordens" Role="ToRole_assoc_E0A8A9715CFA748B3DC84627A3465D16"/>
+                </AssociationSet>
+                <AssociationSet Name="to_signatureSet" Association="cds_zui_o2_coletor_qualidade.to_signature" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_signature"/>
+                    <End EntitySet="SAP__SignatureSet" Role="ToRole_to_signature"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_D1C5A5FDBE178EF4A0A1313AD75C475A" Association="cds_zui_o2_coletor_qualidade.assoc_D1C5A5FDBE178EF4A0A1313AD75C475A" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="DefeitosFisico" Role="FromRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A"/>
+                    <End EntitySet="CatDefFisico" Role="ToRole_assoc_D1C5A5FDBE178EF4A0A1313AD75C475A"/>
+                </AssociationSet>
+                <AssociationSet Name="to_coverpageSet" Association="cds_zui_o2_coletor_qualidade.to_coverpage" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="SAP__MyDocumentDescriptions" Role="FromRole_to_coverpage"/>
+                    <End EntitySet="SAP__CoverPageSet" Role="ToRole_to_coverpage"/>
+                </AssociationSet>
+                <AssociationSet Name="assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE" Association="cds_zui_o2_coletor_qualidade.assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="AnaliseMaterial" Role="FromRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE"/>
+                    <End EntitySet="AnaliseCentro" Role="ToRole_assoc_F113F5B04C2D71E3C1F6B2DEE685E2DE"/>
+                </AssociationSet>
+                <FunctionImport Name="ativar" ReturnType="cds_zui_o2_coletor_qualidade.AdminType" EntitySet="Admin" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.AdminType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="Location" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                </FunctionImport>
+                <FunctionImport Name="setUserDecision" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.DUType">
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Lote de controle"/>
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                </FunctionImport>
+                <FunctionImport Name="cancelar" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="Lote" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Quantidade" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true"/>
+                    <Parameter Name="DataConf" Type="Edm.DateTime" Mode="In" Precision="0" Nullable="true" sap:label="Data" sap:display-format="Date"/>
+                </FunctionImport>
+                <FunctionImport Name="close" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40" Nullable="true" sap:label="Material"/>
+                    <Parameter Name="OperationStandardTextCode" Type="Edm.String" Mode="In" MaxLength="7" Nullable="true" sap:label="ID de texto padrão de operação"/>
+                    <Parameter Name="ManufacturingActionReasonCode" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Código"/>
+                    <Parameter Name="MfgActionReasonCodeGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="MfgActionReasonGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="Quantidade" Type="Edm.Decimal" Mode="In" Precision="13" Scale="3" Nullable="true"/>
+                    <Parameter Name="BOOCharacteristic" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="CaractCtrl."/>
+                    <Parameter Name="Operation" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Operação ou fase"/>
+                    <Parameter Name="Evaluated" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true" sap:label="Transf.avaliação"/>
+                </FunctionImport>
+                <FunctionImport Name="confirmar" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="Lote" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Quantidade" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true"/>
+                    <Parameter Name="DataConf" Type="Edm.DateTime" Mode="In" Precision="0" Nullable="true" sap:label="Data" sap:display-format="Date"/>
+                </FunctionImport>
+                <FunctionImport Name="post_fisico" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40" Nullable="true" sap:label="Material"/>
+                    <Parameter Name="OperationStandardTextCode" Type="Edm.String" Mode="In" MaxLength="7" Nullable="true" sap:label="ID de texto padrão de operação"/>
+                    <Parameter Name="ManufacturingActionReasonCode" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Código"/>
+                    <Parameter Name="MfgActionReasonCodeGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="MfgActionReasonGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="Quantidade" Type="Edm.Decimal" Mode="In" Precision="13" Scale="3" Nullable="true"/>
+                    <Parameter Name="BOOCharacteristic" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="CaractCtrl."/>
+                    <Parameter Name="Operation" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Operação ou fase"/>
+                    <Parameter Name="Evaluated" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true" sap:label="Transf.avaliação"/>
+                </FunctionImport>
+                <FunctionImport Name="post_visual" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40" Nullable="true" sap:label="Material"/>
+                    <Parameter Name="OperationStandardTextCode" Type="Edm.String" Mode="In" MaxLength="7" Nullable="true" sap:label="ID de texto padrão de operação"/>
+                    <Parameter Name="ManufacturingActionReasonCode" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Código"/>
+                    <Parameter Name="MfgActionReasonCodeGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="MfgActionReasonGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="Quantidade" Type="Edm.Decimal" Mode="In" Precision="13" Scale="3" Nullable="true"/>
+                    <Parameter Name="BOOCharacteristic" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="CaractCtrl."/>
+                    <Parameter Name="Operation" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Operação ou fase"/>
+                    <Parameter Name="Evaluated" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true" sap:label="Transf.avaliação"/>
+                </FunctionImport>
+                <FunctionImport Name="print" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40" Nullable="true" sap:label="Material"/>
+                    <Parameter Name="OperationStandardTextCode" Type="Edm.String" Mode="In" MaxLength="7" Nullable="true" sap:label="ID de texto padrão de operação"/>
+                    <Parameter Name="ManufacturingActionReasonCode" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Código"/>
+                    <Parameter Name="MfgActionReasonCodeGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="MfgActionReasonGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="Quantidade" Type="Edm.Decimal" Mode="In" Precision="13" Scale="3" Nullable="true"/>
+                    <Parameter Name="BOOCharacteristic" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="CaractCtrl."/>
+                    <Parameter Name="Operation" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Operação ou fase"/>
+                    <Parameter Name="Evaluated" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true" sap:label="Transf.avaliação"/>
+                </FunctionImport>
+                <FunctionImport Name="skip" ReturnType="cds_zui_o2_coletor_qualidade.DummyFunctionImportResult" m:HttpMethod="POST" sap:action-for="cds_zui_o2_coletor_qualidade.OrdensType">
+                    <Parameter Name="Plant" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Centro"/>
+                    <Parameter Name="WorkCenterLocation" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Localização"/>
+                    <Parameter Name="MachineType" Type="Edm.String" Mode="In" MaxLength="10" sap:label="Tipo de máquina"/>
+                    <Parameter Name="Processo" Type="Edm.String" Mode="In" MaxLength="4" sap:label="Processo"/>
+                    <Parameter Name="OrderID" Type="Edm.String" Mode="In" MaxLength="12" sap:label="Ordem"/>
+                    <Parameter Name="InspectionLot" Type="Edm.String" Mode="In" MaxLength="12" Nullable="true" sap:label="Lote de controle"/>
+                    <Parameter Name="Material" Type="Edm.String" Mode="In" MaxLength="40" Nullable="true" sap:label="Material"/>
+                    <Parameter Name="OperationStandardTextCode" Type="Edm.String" Mode="In" MaxLength="7" Nullable="true" sap:label="ID de texto padrão de operação"/>
+                    <Parameter Name="ManufacturingActionReasonCode" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Código"/>
+                    <Parameter Name="MfgActionReasonCodeGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="MfgActionReasonGroup" Type="Edm.String" Mode="In" MaxLength="8" Nullable="true" sap:label="Grupo de códigos"/>
+                    <Parameter Name="Quantidade" Type="Edm.Decimal" Mode="In" Precision="13" Scale="3" Nullable="true"/>
+                    <Parameter Name="BOOCharacteristic" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="CaractCtrl."/>
+                    <Parameter Name="Operation" Type="Edm.String" Mode="In" MaxLength="4" Nullable="true" sap:label="Operação ou fase"/>
+                    <Parameter Name="Evaluated" Type="Edm.String" Mode="In" MaxLength="1" Nullable="true" sap:label="Transf.avaliação"/>
+                </FunctionImport>
+            </EntityContainer>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.AnaliseCentroType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="C_PlantVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.AnaliseMaterialType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="C_Materialvh"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MaterialName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.AdminType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="I_PlantVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValuationArea"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCustomer"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FactoryCalendar"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DefaultPurchasingOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AddressID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.AdminType/Location" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="I_WorkCenterLocationVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Location"/>
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterLocation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterIn">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterPlant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterLocationName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.CentroType/OrderType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Tipo de ordem"/>
+                        <PropertyValue Property="CollectionPath" String="I_MfgOrderTypeVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="OrderType"/>
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ManufacturingOrderTypeName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.DUType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Centro"/>
+                        <PropertyValue Property="CollectionPath" String="I_PlantVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValuationArea"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCustomer"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FactoryCalendar"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DefaultPurchasingOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AddressID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.DUType/InspectionLotHasUsageDecision" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="DU Realizada"/>
+                        <PropertyValue Property="CollectionPath" String="ZI_QM_DU_REALIZADA_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="InspectionLotHasUsageDecision"/>
+                                    <PropertyValue Property="ValueListProperty" String="Opcao"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="OpcaoText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+                <Annotation Term="Common.FilterDefaultValue" String="0"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.LotesType/Material" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Material"/>
+                        <PropertyValue Property="CollectionPath" String="I_MaterialStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Material"/>
+                                    <PropertyValue Property="ValueListProperty" String="Material"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Material_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.ProcessosType/Processo" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="ZI_QM_COLETOR_PROCESSO_VH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Processo"/>
+                                    <PropertyValue Property="ValueListProperty" String="Process"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Dominio"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Language"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ProcessName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.ProcessosType/Centro" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String=""/>
+                        <PropertyValue Property="CollectionPath" String="C_PlantVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Centro"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.DUOptionsType/CharacteristicAttributeCodeGrp" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Grupo de códigos"/>
+                        <PropertyValue Property="CollectionPath" String="I_CharcAttributeCodeGrpStdVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="CharacteristicAttributeCodeGrp"/>
+                                    <PropertyValue Property="ValueListProperty" String="CharacteristicAttributeCodeGrp"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.LinhasType/Plant" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Centro"/>
+                        <PropertyValue Property="CollectionPath" String="I_PlantVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="Plant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantName"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="ValuationArea"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCustomer"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantSupplier"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="FactoryCalendar"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DefaultPurchasingOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="SalesOrganization"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="AddressID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="PlantCategory"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="DistributionChannel"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="Division"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.LinhasType/WorkCenterLocation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Localização"/>
+                        <PropertyValue Property="CollectionPath" String="I_WorkCenterLocationVH"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="Plant"/>
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterPlant"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="WorkCenterLocation"/>
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterLocation"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="WorkCenterLocationName"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.LinhasType/MachineType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Tipo de máquina"/>
+                        <PropertyValue Property="CollectionPath" String="I_MachineType"/>
+                        <PropertyValue Property="SearchSupported" Bool="true"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="MachineType"/>
+                                    <PropertyValue Property="ValueListProperty" String="MachineType"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="MachineType_Text"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ApplyMultiUnitBehaviorForSortingAndFiltering" Bool="true"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities/DU" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="InspectionLotHasUsageDecision"/>
+                                    <PropertyValue Property="AllowedExpressions" String="SingleValue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities/Lotes" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonFilterableProperties">
+                            <Collection>
+                                <PropertyPath>IsSkipAllowed</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="Capabilities.SortRestrictions">
+                    <Record>
+                        <PropertyValue Property="NonSortableProperties">
+                            <Collection>
+                                <PropertyPath>IsSkipAllowed</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities/AnaliseCentro" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Material"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities/Processos" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Capabilities.NavigationRestrictions">
+                    <Record>
+                        <PropertyValue Property="RestrictedProperties">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="NavigationProperty" NavigationPropertyPath="to_Centro"/>
+                                    <PropertyValue Property="InsertRestrictions">
+                                        <Record>
+                                            <PropertyValue Property="Insertable" Bool="true"/>
+                                        </Record>
+                                    </PropertyValue>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.ZI_QM_COLETOR_PROCESSO_VHType" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.SemanticKey">
+                    <Collection>
+                        <PropertyPath>Process</PropertyPath>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.cds_zui_o2_coletor_qualidade_Entities" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Org.OData.Capabilities.V1.BatchSupport">
+                    <Record Type="Org.OData.Capabilities.V1.BatchSupportType">
+                        <PropertyValue Property="ReferencesAcrossChangeSetsSupported" Bool="true"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.CurrencyCodes">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__Currencies"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.UnitsOfMeasure">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__UnitsOfMeasure"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__PDF.Features">
+                    <Record>
+                        <PropertyValue Property="DocumentDescriptionReference" String="./$metadata"/>
+                        <PropertyValue Property="DocumentDescriptionCollection" String="SAP__MyDocumentDescriptions"/>
+                        <PropertyValue Property="ArchiveFormat" Bool="true"/>
+                        <PropertyValue Property="CoverPage" Bool="true"/>
+                        <PropertyValue Property="Signature" Bool="true"/>
+                        <PropertyValue Property="ResultSizeDefault" Int="20000"/>
+                        <PropertyValue Property="ResultSizeMaximum" Int="20000"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__CodeList.SAP__DocumentDescription">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__MyDocumentDescriptions"/>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__Currency/CurrencyCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__UnitOfMeasure/UnitCode" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.Text" Path="Text"/>
+                <Annotation Term="SAP__common.UnitSpecificScale" Path="DecimalPlaces"/>
+                <Annotation Term="SAP__CodeList.StandardCode" Path="ISOCode"/>
+                <Annotation Term="SAP__CodeList.ExternalCode" Path="ExternalCode"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__UnitOfMeasure" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.AlternateKeys">
+                    <Collection>
+                        <Record>
+                            <PropertyValue Property="Key">
+                                <Collection>
+                                    <Record>
+                                        <PropertyValue Property="Name" Path="ExternalCode"/>
+                                        <PropertyValue Property="Alias" String="ExternalCode"/>
+                                    </Record>
+                                </Collection>
+                            </PropertyValue>
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription/CreatedBy" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription/CreatedAt" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__core.Computed"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__DocumentDescription" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__capabilties.InsertRestrictions">
+                    <Record>
+                        <PropertyValue Property="Insertable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.UpdateRestrictions">
+                    <Record>
+                        <PropertyValue Property="Updatable" Bool="false"/>
+                        <PropertyValue Property="QueryOptions">
+                            <Record>
+                                <PropertyValue Property="SelectSupported" Bool="true"/>
+                            </Record>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.DeleteRestrictions">
+                    <Record>
+                        <PropertyValue Property="Deletable" Bool="false"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__capabilties.FilterRestrictions">
+                    <Record>
+                        <PropertyValue Property="FilterExpressionRestrictions">
+                            <Collection>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/Orientation"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                                <Record>
+                                    <PropertyValue Property="Property" PropertyPath="Format/PaperSize"/>
+                                    <PropertyValue Property="AllowedExpressions" String="Multivalue"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__Format/Orientation" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27FontName%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <Annotations Target="cds_zui_o2_coletor_qualidade.SAP__TableColumns/HorizontalAlignment" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="SAP__common.ValueListReferences">
+                    <Record>
+                        <PropertyValue Property="Url" String="./$metadata"/>
+                        <PropertyValue Property="CollectionPath" String="SAP__ValueHelpSet?$filter=VALUEHELP%20eq%20%27HorizontalAlignment%27"/>
+                    </Record>
+                </Annotation>
+                <Annotation Term="SAP__common.ValueListWithFixedValues"/>
+            </Annotations>
+            <atom:link rel="self" href="https://vhnfgs4qci.sap.nadir.com.br:44300/sap/opu/odata/sap/ZUI_O2_COLETOR_QUALIDADE/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://vhnfgs4qci.sap.nadir.com.br:44300/sap/opu/odata/sap/ZUI_O2_COLETOR_QUALIDADE/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

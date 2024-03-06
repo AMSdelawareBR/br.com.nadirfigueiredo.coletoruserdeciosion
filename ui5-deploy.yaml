@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: br.com.nadirfigueiredo.coletoruserdecision
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: https://vhnfgs4dci.sap.nadir.com.br:44300/
+          client: "100"
+        app:
+          name: ZZ1_COLETORDU
+          description: Decisão de Usuário - Lotes de Controle
+          package: ZQM_COLETOR_CTRL_QUALIDADE
+          transport: S4DK9X19EW
+        exclude:
+          - /test/

@@ -1,0 +1,47 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:f="sap.ui.layout.form"
+>
+    <Dialog
+        id="idDialog"
+        icon="sap-icon://bar-code"
+        title="{i18n>ScanTitle}"
+        titleAlignment="Center"
+    >
+        <Panel>
+            <FlexBox
+                alignItems="Center"
+                alignContent="Center"
+                justifyContent="SpaceAround"
+            >
+                <Input
+                    id="idBarcode"
+                    placeholder="{i18n>CodigoBarras}"
+                    liveChange=".onLiveChange"
+                >
+                    <layoutData>
+                        <FlexItemData growFactor="10" />
+                    </layoutData>
+                </Input>
+                <Button
+                    type="Ghost"
+                    press=".onScan"
+                    icon="sap-icon://camera"
+                    tooltip="{i18n>ButtonScan}"
+                >
+                    <layoutData>
+                        <FlexItemData growFactor="1" />
+                    </layoutData>
+                </Button>
+            </FlexBox>
+        </Panel>
+        <endButton>
+            <Button
+                text="{i18n>ButtonDialogCancel}"
+                press=".onClose"
+                type="Reject"
+            />
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>
